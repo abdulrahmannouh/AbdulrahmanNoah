@@ -129,7 +129,11 @@ class _MyAppState extends State<MyApp> {
                                     ),
                                     onPressed: () {
                                       setState(() {
-                                        _isvisible != _isvisible;
+                                        if (_isvisible)
+                                          _isvisible = false;
+                                        else
+                                          _isvisible = true;
+                                        print(_isvisible);
                                       });
                                     },
                                   ),
