@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isvisible = true;
+  bool isremembered = false;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                             margin:
                                 const EdgeInsets.only(top: 67, right: 150.0),
                             child: const Text(
-                              "First name",
+                              "First name:",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w400),
                             ),
@@ -75,9 +76,40 @@ class _MyAppState extends State<MyApp> {
                           ),
                           Container(
                             margin:
+                                const EdgeInsets.only(top: 10, right: 150.0),
+                            child: const Text(
+                              "Last name:",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            color: Colors.transparent,
+                            width: 226,
+                            height: 43,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  hintText: 'Your Lastname',
+                                  hintStyle: const TextStyle(
+                                      color: Color.fromRGBO(27, 47, 108, 1),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400),
+                                  filled: true,
+                                  fillColor:
+                                      const Color.fromRGBO(119, 193, 193, 0.75),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 1.0,
+                                          color: Color.fromRGBO(10, 50, 77, 1)),
+                                      borderRadius: BorderRadius.circular(10))),
+                            ),
+                          ),
+                          Container(
+                            margin:
                                 const EdgeInsets.only(top: 10, right: 170.0),
                             child: const Text(
-                              "Email",
+                              "Email:",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w400),
                             ),
@@ -108,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                             margin:
                                 const EdgeInsets.only(top: 10, right: 150.0),
                             child: const Text(
-                              "Password",
+                              "Password:",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w400),
                             ),
@@ -151,7 +183,13 @@ class _MyAppState extends State<MyApp> {
                                           color: Color.fromRGBO(10, 50, 77, 1)),
                                       borderRadius: BorderRadius.circular(10))),
                             ),
-                          )
+                          ),
+                          Container(
+                              child: CheckboxListTile(
+                                  value: isremembered,
+                                  onChanged: (isremembered) {
+                                    isremembered = true;
+                                  }))
                         ],
                       ),
                     ),
